@@ -47,7 +47,13 @@ const skillsList = [
 const detailOrQuote =
   "I am passionate about solving problems in new creative ways to drive innovation. I have honed my expertise in web development and machine learning domains and I am enthusiastic about acquiring additional skills to make meaningful contributions to society.";
 
+
 const About = () => {
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+  window.addEventListener("resize", () => {
+    setIsMobile(window.innerWidth <= 768);
+  });
+
   return (
     <section className="padding" id="about">
       <img className="background" src={image} alt={imageAltText} />
@@ -66,9 +72,9 @@ const About = () => {
         <ul
           style={{
             textAlign: "left",
-            columns: 2,
+            columns: isMobile ? 1 : 2,
             fontSize: "1.25rem",
-            margin: "2rem 3rem",
+            margin: isMobile ? "2rem 1rem" : "2rem 3rem",
             gap: "3rem",
           }}
         >

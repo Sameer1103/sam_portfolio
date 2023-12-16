@@ -125,11 +125,39 @@ img.socialIcon {
   width: 30px;
 }
 
+
 @keyframes slideIn {
   0% {
     transform: translateX(-100%);
+    transform: translate3d(0, 0, 0)
   }
   100% {
     transform: translateX(0);
+    transform: translate3d(0, 0, 0)
   }
 }
+
+.slideInAnimation {
+  animation: slideIn 1s ease-out 1s 1;
+}
+
+/* write a media query to make the page responsive */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .container .box {
+    margin: 20px 20px 0 20px;
+  }
+}
+
+/* write media query to change font size of h1 to 5rem and h2 to 1.5rem */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 5rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
