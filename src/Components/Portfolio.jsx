@@ -1,34 +1,8 @@
-/**
- * Portfolio component
- *
- * Highlights some of  your creations. These can be designs, websites,
- * open source contributions, articles you've written and more.
- *
- * This is a great area for you to to continually add to and refine
- * as you continue to learn and create.
- */
-
 import React from "react";
-
-/**
- * Desk image
- *
- * Below is a sample desk image. Feel free to update this to an image of your choice,
- * updating below imageAltText to string that represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */
 import image from "../images/desk.png";
 
 const imageAltText = "desktop with books and laptop";
 
-/**
- * Project list
- *
- * An array of objects that will be used to display for your project
- * links section. Below is a sample, update to reflect links you'd like to highlight.
- */
 const projectList = [
   {
     title: "Movie Genre Classification Model 🎥",
@@ -58,9 +32,33 @@ const projectList = [
 
 const Portfolio = () => {
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+  const [animate, setAnimate] = React.useState(false);
+  const imageRef = React.useRef(null);
+
   window.addEventListener("resize", () => {
     setIsMobile(window.innerWidth <= 768);
   });
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (imageRef.current) {
+        const imageOffsetTop = imageRef.current.getBoundingClientRect().top;
+        const scrollPosition = window.innerHeight;
+
+        if (scrollPosition > imageOffsetTop && imageOffsetTop > 0) {
+          setAnimate(true);
+        } else {
+          setAnimate(false);
+        }
+      }
+    };
+
+    document.body.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.body.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <section className="padding" id="portfolio">
@@ -70,8 +68,9 @@ const Portfolio = () => {
       >
         <div style={{ maxWidth: "40%", alignSelf: "center" }}>
           <img
+            ref={imageRef}
+            className={animate ? "slideInAnimation" : ""}
             src={image}
-            className="slideInAnimation"
             style={{
               height: "90%",
               width: "100%",
