@@ -1,12 +1,3 @@
-/**
- * Footer component
- *
- * Displays avenues to contact you.
- * Contact information is passed in from the App component that
- * renders the Footer.
- *
- * If a social value has an empty string it will not be displayed.
- */
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -18,13 +9,6 @@ import linkedInIcon from "../images/socials/linkedin.svg";
 import mediumIcon from "../images/socials/medium.svg";
 import twitterIcon from "../images/socials/twitter.svg";
 import youTubeIcon from "../images/socials/youtube.svg";
-
-/**
- * 💡 Learning resources
- *
- *  HTML hyperlinks: https://www.w3schools.com/html/html_links.asp
- *  Opening links in new tabs: https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/
- */
 
 const Footer = (props) => {
   const {
@@ -112,6 +96,11 @@ const Footer = (props) => {
             <img src={youTubeIcon} alt="YouTube" className="socialIcon" />
           </a>
         )}
+
+        <a href="https://drive.google.com/file/d/1BN8UelSMxt_QpPZ3dQVm_06rxFNA2HQh/view?usp=sharing">
+          <button className="resume">View Resume</button>
+        </a>
+
       </div>
       <p className="small" style={{ marginTop: 0, color: "white" }}>
         Created by {name}
