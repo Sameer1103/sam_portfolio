@@ -426,5 +426,3 @@ Explore how you can use Copilot to help you:
 
 ## 🔎 Found an issue or have an idea for improvement? 
 Help us make this template repository better by [letting us know and opening an issue!](/../../issues/new).
-
-[Resume Link](/workspaces/sam_portfolio/Sameer_Khanna_Resume.pdf)
