@@ -43,9 +43,12 @@ const Portfolio = () => {
     const handleScroll = () => {
       if (imageRef.current) {
         const imageOffsetTop = imageRef.current.getBoundingClientRect().top;
+        const imageOffsetBottom = imageRef.current.getBoundingClientRect().bottom;
         const scrollPosition = window.innerHeight;
 
         if (scrollPosition > imageOffsetTop && imageOffsetTop > 0) {
+          setAnimate(true);
+        } else if (scrollPosition > imageOffsetBottom && imageOffsetBottom > 0) {
           setAnimate(true);
         } else {
           setAnimate(false);
